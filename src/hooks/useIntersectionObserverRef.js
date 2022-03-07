@@ -11,13 +11,15 @@ const useIntersectionObserverRef = (configs=null, removeAfterIntersect=false) =>
   useEffect(()=>{
     if(loaded){
       const observer = new IntersectionObserver((entries, observer) => {
-        let len = entries.filter(entry => entry.isIntersecting).length
+        // let len = entries.filter(entry => !entry.isIntersecting).length
+        // console.log(len)
         entries.forEach((entry, idx) => {
-          // console.log(entry)
           if(entry.isIntersecting){
-            console.log(idx, len, entry.target.querySelector('h2').innerText)
+            // console.log(idx, len, entry.target.querySelector('h2').innerText)
             entry.target.classList.add('visible')
-            observer.unobserve(entry.target)
+            if(removeAfterIntersect) observer.unobserve(entry.target)
+          }else{
+            if(!removeAfterIntersect) entry.target.classList.remove('visible')
           }
         })
       }, configs)
@@ -34,8 +36,6 @@ const useIntersectionObserverRef = (configs=null, removeAfterIntersect=false) =>
 
   
   const loadUp = useCallback(() => {
-    console.log('called')
-
     if(!loaded){ setLoaded(true)}
   }, [setLoaded, loaded])
 

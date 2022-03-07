@@ -22,8 +22,6 @@ function IntersectionObs(props) {
   const [data, setData] = useState([])
   // const refs = useRef([])
   // const [loaded, setLoaded] = useState(false)
-  const { useCompObs = false } = props
-
   // useEffect(()=>{
   //   if(loaded){
   //     const observer = new IntersectionObserver((entries, observer) => {
@@ -60,7 +58,7 @@ function IntersectionObs(props) {
     root: null,
     rootMargin: '32px',
     threshold: [0.8]
-  })
+  }, true)
 
   useEffect(() => {
     service([0, 100])
