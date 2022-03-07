@@ -80,7 +80,7 @@ input[type=radio] {
   &:hover{
     transform: scale(1.1);
   }
-  transition: transform 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   opacity: 0;
   width: 48rem;
@@ -122,6 +122,5 @@ input[type=radio] {
   }
   &.visible{
     opacity: 1;
-    transition: opacity 0.6s ease-in-out;
   }
 }
