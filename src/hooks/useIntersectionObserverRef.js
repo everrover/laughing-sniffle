@@ -17,7 +17,14 @@ const useIntersectionObserverRef = (configs=null, removeAfterIntersect=false) =>
           if(entry.isIntersecting){
             // console.log(idx, len, entry.target.querySelector('h2').innerText)
             entry.target.classList.add('visible')
-            if(removeAfterIntersect) observer.unobserve(entry.target)
+            if(removeAfterIntersect){ 
+              observer.unobserve(entry.target)
+              const index = refs.current.findIndex(ref => ref === entry.target)
+              if (index > 5) { 
+                observer.observe(refs.current[index-5]);
+                refs.current[index-5].classList.remove('visible')
+              }
+            }
           }else{
             if(!removeAfterIntersect) entry.target.classList.remove('visible')
           }
