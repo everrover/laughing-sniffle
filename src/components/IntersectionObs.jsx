@@ -49,7 +49,7 @@ function IntersectionObs(props) {
     }else{
       return () => {}
     }
-  }, [loaded, data])
+  }, [loaded])
 
   const loadUp = useCallback(() => {
     if(!loaded){ setLoaded(true)}
