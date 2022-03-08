@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-const useIntersectionObserverRef = (imageSet=[], blockWidth=200) => {
+const useIntersectionObserverRef = (imageSet=[], blockWidth=200, action=(a)=>{
+  console.log(a)
+}) => {
   const ref = useRef()
   const [loaded, setLoaded] = useState(false)
   const [images, setImages] = useState([imageSet[0]])
@@ -41,9 +43,9 @@ const useIntersectionObserverRef = (imageSet=[], blockWidth=200) => {
     if(loaded){ setLoaded(false)}
   }, [setLoaded, loaded])
 
-  const addRef = useCallback((r) => {
-    if(r && !(ref.current===r))
-      ref.current = r;
+  const addRef = useCallback((newRef) => {
+    if(newRef && !(ref.current===newRef))
+      ref.current = newRef;
   }, [ref])
   return [addRef, loadUp, loadDown, images]
 }

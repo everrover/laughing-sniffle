@@ -2,7 +2,7 @@ import './App.scss';
 import React, { useState } from 'react';
 import IntersectionObs from './components/IntersectionObs';
 import ResizeObs from './components/ResizeObs';
-
+import GrandParent from './components/Reducer/GrandParent';
 function App() {
   const [selected, setSelected] = useState("3");
   console.log(selected==="3")
@@ -37,6 +37,7 @@ function App() {
       </div>
       {selected==="1" && <IntersectionObs/>}
       {selected==="3" && <ResizeObs/>}
+      {selected==="5" && <GrandParent/>}
     </div>
   );
 }

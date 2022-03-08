@@ -15,3 +15,55 @@ code {
 * {
   color: #eaeaea
 }
+
+button{
+  padding: 1rem 2rem;
+  color: black;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.reducer-demo-subchild{
+  background-color: #1a1a1a;
+  padding: 1rem;
+  width: fit-content;
+  margin: 1rem auto;
+}
+
+.reducer-demo-child{
+  background-color: #2a2a2a;
+  padding: 1rem 3rem;
+  width: fit-content;
+  margin: 1rem auto;
+}
+
+.reducer-demo-parent{
+  background-color: #1f1f1f;
+  padding: 1rem 3rem;
+  width: fit-content;
+  margin: 1rem auto;
+}
+
+.reducer-demo-gp{
+  background-color: #2d2d2d;
+  border: 2px solid #00c44b;
+  padding: 1rem 3rem;
+  width: fit-content;
+  margin: 5rem auto;
+  &:hover{
+    transform: scale(1.1);
+  }
+  transition: transform 0.6s ease-in-out;
+}
+
+h3{
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 1rem 0;
+}
+
+h1{
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 1rem 0;
+}
