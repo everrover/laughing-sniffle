@@ -1,9 +1,10 @@
 import './App.scss';
 import React, { useState } from 'react';
 import IntersectionObs from './components/IntersectionObs';
+import ResizeObs from './components/ResizeObs';
 
 function App() {
-  const [selected, setSelected] = useState("1");
+  const [selected, setSelected] = useState("3");
   console.log(selected==="3")
   return (
     <div className="App">
@@ -28,8 +29,14 @@ function App() {
           // e.preventDefault()
           setSelected(e.target.value)
         }}/>
+        <label>ContextWithReducer</label>
+        <input type="radio" value="5" checked={selected==="5"} name="ContextWithReducer" onChange={e=>{
+          // e.preventDefault()
+          setSelected(e.target.value)
+        }}/>
       </div>
       {selected==="1" && <IntersectionObs/>}
+      {selected==="3" && <ResizeObs/>}
     </div>
   );
 }
