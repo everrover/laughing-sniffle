@@ -1,3 +1,5 @@
+# \[Any suggestions or improvement on this small humble endaevour is welcome. Willing to learn and grow here, as we all are😊\]
+
 # A very basic demo of *React hooks*, *Flux model* and *Basics of using observers with React hooks*
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
