@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# A very basic demo of *React hooks*, *Flux model* and *Basics of using observers with React hooks*
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
