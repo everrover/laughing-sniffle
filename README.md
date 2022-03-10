@@ -14,7 +14,7 @@ Open [http://localhost:3020](http://localhost:3020) to view it in your browser.
 The page will reload when you make changes.
 You may also see any lint errors in the console.
 
-### Associated article [https://www.everrover.com/articles/]
+### Associated article [\[link\]](https://www.everrover.com/articles/observers-in-react-vbasic)
 
 > **Use navbar to navigate to the associated demo page.**
 
