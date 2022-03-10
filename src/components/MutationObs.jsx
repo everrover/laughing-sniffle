@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import useMutationObserverRef from '../hooks/useMutationObserverRef'  
 
 function MutationObs(props) {
@@ -39,8 +39,12 @@ function MutationObs(props) {
   //     }} style={{fontWeight: "800", color: "#3a3a3a"}}>X</button>
   //   </div>, []
   // )
+  const json = useCallback(()=>{
+    return JSON.stringify(selected, null, 2); 
+  }, [selected])
   return (
     <div className='mutation-observer-demo'>
+
       <div className='mutation-obs-essentials'>
         <div style={{minWidth: '100%'}}>Atleast one of these is essential</div>
         <div className='formName'>
@@ -172,6 +176,8 @@ function MutationObs(props) {
         }
         </div> */}
       </div>
+      <textarea onChange={_=>{}} value={json()} rows={16}>
+      </textarea>
     </div>
   )
 }

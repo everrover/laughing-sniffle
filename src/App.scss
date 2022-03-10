@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   min-height: 100vh;
-  background-color: #282c34;
+  background-color: #1e1e1e;
 }
 
 .App-logo {
@@ -242,4 +242,12 @@ p[data-red] {
 
 p[data-blue] {
   background-color: rgba($color: #0099ff, $alpha: 0.5);
+}
+
+textarea{
+  background: #2a2a2a;
+  border: 2px dashed #dadada;
+  padding: 1rem 2rem;
+  margin: 1rem auto;
+  width: min(56rem, 100%);
 }
