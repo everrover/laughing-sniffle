@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Context} from './index.jsx'
 function SubChild(props) {
-  const {state, dispatch} = React.useContext(Context)
+  const {dispatch} = React.useContext(Context)
   console.log("Sub-child rendered!")
   return (
     <div className='reducer-demo-subchild'>

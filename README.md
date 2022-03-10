@@ -6,65 +6,68 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in the development mode.(the only tested mode)
+Open [http://localhost:3020](http://localhost:3020) to view it in your browser.
 
-The page will reload when you make changes.\
+The page will reload when you make changes.
 You may also see any lint errors in the console.
 
-### `npm test`
+### Associated article [https://www.everrover.com/articles/]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> **Use navbar to navigate to the associated demo page.**
 
-### `npm run build`
+### Intersection observer 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Simple block loading effect within the screen. 
+The blocks far above and far below the view will stay faded out(via opacity transition from 1 to 0) and will have their opacity restored when they come in view. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Other practical use-cases
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Lazy loading elements when they come in view(eg: images, posts, etc)
+- Lazy loading imports when they come in view
+- Data grabbing
+- Auto-play and auto-pause videos when they come in view
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> Others might be there but I couldn't think of any. As and when I continue by dev journey, I'll know more and hence I'll add more.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Resize observer
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This observer will only allow `ciel(viewport-width/image_width)` number of images to display at a time. Simple.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Mutation observer
 
-## Learn More
+#### Some points
+- Any one of the `essential`'s should be selected or else observer will not work
+- The actual config being used is on display at the bottom of the page
+- `CharacterData`
+  - *Parent list* text can be editted if `CharacterData` is selected
+  - To view mutation events `Subtree` should be selected. Since `CharacterData` only monitors root level text by default.
+  - Select `CharacterDataOldValue` to see old value of text before mutation
+  - Ignore the following warning for now. It's just a demo after all.
+  ```
+  Warning: A component is `contentEditable` and contains `children` managed by React.
+  ```
+- `ChildData`
+  - `Subtree` selection does what it does. Allows us to monitor child list elements
+  - By default only monitors parent list elements
+- `Attributes`
+  - Allows monitoring of three attributes
+    - `data-green`
+    - `data-blue`
+    - `data-red`
+  - Select via element above **Add/Remove entry** button
+  - Colors will only show after first selection and if `Attributes` is selected
+  - Monitoring will only happen if both `Attributes` and `Subtree` are selected. Since `Attributes` only monitors root level attributes by default
+  - Select `AttributeOldValue` to see old value of attributes in `entry` before mutation
+  - `AttributeFilter` is to be used to monitor only specific attributes. The list is comma separated. (eg: `data-green, data-blue`). The space after comma is required.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Context reducer
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Four level hierarchy is present
+  - `Alpha` element is where reducer, context and state is defined
+  - `Parent` element is where **count** is shown. Data is fetched via `useContext` hook
+  - `Child` element is where **count** is incremented via a button. `Reducer` dispatch is fetched via `useContext` hook
+  - `SubChild` element is where **count** is decremented via a button. `Reducer` dispatch is fetched via `useContext` hook
