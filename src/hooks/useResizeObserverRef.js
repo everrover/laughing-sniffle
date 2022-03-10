@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-const useIntersectionObserverRef = (imageSet=[], blockWidth=200, action=(a)=>{
+const useResizeObserverRef = (imageSet=[], blockWidth=200, action=(a)=>{
   console.log(a)
 }) => {
   const ref = useRef()
@@ -50,4 +50,4 @@ const useIntersectionObserverRef = (imageSet=[], blockWidth=200, action=(a)=>{
   return [addRef, loadUp, loadDown, images]
 }
 
-export default useIntersectionObserverRef
+export default useResizeObserverRef

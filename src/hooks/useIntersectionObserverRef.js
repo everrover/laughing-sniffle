@@ -1,14 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-const useIntersectionObserverRef = (configs=null, removeAfterIntersect=false) => {
+const useIntersectionObserverRef = (configs={
+  root: null,
+  rootMargin: '0px',
+  threshold: [1.0]
+}, removeAfterIntersect=false) => {
   const refs = useRef([])
   const visibleRefs = useRef(new Set())
   const [loaded, setLoaded] = useState(false)
-  configs = configs || {
-    root: null,
-    rootMargin: '0px',
-    threshold: [1.0]
-  }
   useEffect(()=>{
     if(loaded){
       const observer = new IntersectionObserver((entries, observer) => {

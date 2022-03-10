@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import IntersectionObs from './components/IntersectionObs';
 import ResizeObs from './components/ResizeObs';
 import GrandParent from './components/Reducer/GrandParent';
+import MutationObs from './components/MutationObs';
 function App() {
-  const [selected, setSelected] = useState("3");
-  console.log(selected==="3")
+  const [selected, setSelected] = useState("2");
   return (
     <div className="App">
       <div className='radios'>
@@ -36,6 +36,7 @@ function App() {
         }}/>
       </div>
       {selected==="1" && <IntersectionObs/>}
+      {selected==="2" && <MutationObs/>}
       {selected==="3" && <ResizeObs/>}
       {selected==="5" && <GrandParent/>}
     </div>
