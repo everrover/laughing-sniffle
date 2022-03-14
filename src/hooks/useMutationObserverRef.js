@@ -20,6 +20,8 @@ const useMutationObserverRef = (configs={
       })
       if(refs && refs.current && refs.current.length>0){
         try{
+          // const records = observer.takeRecords()
+          // console.log(records)
           refs.current.forEach(ref=>observer.observe(ref, configs))
         }catch(err){
           console.error(err)

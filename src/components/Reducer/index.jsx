@@ -1,6 +1,4 @@
 import React, {useReducer} from 'react'
-import service from '../../service'
-import useIntersectionObserverRef from '../../hooks/useIntersectionObserverRef'
 
 const init = { // Initial state
   count: 0,

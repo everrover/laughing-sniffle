@@ -20,7 +20,7 @@ const useIntersectionObserverRef = (configs={
               observer.unobserve(entry.target)
               visibleRefs.current.add(entry.target)
               const index = refs.current.findIndex(ref => ref === entry.target)
-              if (index > 5 && visibleRefs.current.has(refs.current[index-5])){
+              if (index > 10 && visibleRefs.current.has(refs.current[index-10])){
                 visibleRefs.current.delete(refs.current[index-10]) 
                 observer.observe(refs.current[index-10])
                 refs.current[index-10].classList.remove('visible')

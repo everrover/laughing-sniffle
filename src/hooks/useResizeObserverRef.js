@@ -10,6 +10,7 @@ const useResizeObserverRef = (imageSet=[], blockWidth=200, action=(a)=>{
     if(loaded){
       const observer = new ResizeObserver((entries, observer) => {
         entries.forEach((entry, idx) => {
+          // console.log(entry)
           const width = entry.contentRect.width
           const imgCount = Math.floor(width/blockWidth)
           // console.log(idx+":"+imgCount)
@@ -26,7 +27,7 @@ const useResizeObserverRef = (imageSet=[], blockWidth=200, action=(a)=>{
       console.log("Unloaded.")
       return () => {
         console.log("Loaded.")
-      }
+      }   
     }
   }, [loaded, imageSet, blockWidth])
 
